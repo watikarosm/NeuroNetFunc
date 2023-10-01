@@ -12,10 +12,10 @@ print("Numpy: ", np.__version__)
 print("Matplotlib: ", mp.__version__)
 
 # inputs from sensors
-a = 1
-b = 2
-c = 3
-d = 4
+a = 1.0
+b = 2.0
+c = 3.0
+d = 4.0
 
 def aNeuron(a, b, c, d):
     # ML variables
@@ -108,3 +108,20 @@ def twoLayersNeuron(a, b, c, d):
 
 print("\nTwo-layer neurons: ")
 print(twoLayersNeuron(a, b, c, d))
+
+# Example of inputs, weights, and biases
+inputs = [[a, b, c, d], [2.0, 5.0, -1.0, 2.0],[-1.5, 2.7, 3.3, -0.8]]
+weights = [[0.66, 0.95, 0.01, 0.001],[0.5, 0.99, 0.3, -0.75],[-0.4, -0.2, -0.85, 0.11]]
+biases = [3, 5, 7]
+# using zip function
+layer_outputs = []
+for neuron_weights, neuron_bias in zip(weights, biases):
+    neuron_output = 0
+    for each_input_set, weight in zip(inputs, neuron_weights):
+        for each_input in each_input_set:
+            neuron_output += (each_input * weight)
+        # print("each_input ", each_input, " weight ", weight)
+    neuron_output += neuron_bias
+    layer_outputs.append(neuron_output)
+
+print("layer_outputs reuslt using zip function: ", layer_outputs)
