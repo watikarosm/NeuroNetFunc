@@ -124,4 +124,11 @@ for neuron_weights, neuron_bias in zip(weights, biases):
     neuron_output += neuron_bias
     layer_outputs.append(neuron_output)
 
-print("layer_outputs reuslt using zip function: ", layer_outputs)
+print("\nlayer_outputs reuslt using zip function: ", layer_outputs)
+
+print("\nDot product of inputs and weights plus biases: ")
+output = np.dot(inputs, np.array(weights).T) + biases
+print(output)
+print("\nOutputs with no biases: ")
+output = np.dot(inputs, np.array(weights).T)
+print(output)
